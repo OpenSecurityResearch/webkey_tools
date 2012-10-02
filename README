@@ -1,0 +1,36 @@
+USB Webkey Tools
+by brad antoniewicz
+brad.antoniewicz@foundstone.com
+-------------------------------------------------
+
+These are a set of simple scripts to aid in USB
+webkey hacking. They all have been tested with the
+chip labeled WEB-130C, and J24C02C DP1D07 EEPROM.
+
+See http://blog.opensecurityresearch.com/2012/10/hacking-usb-webkeys.html
+for more information. 
+
+
+webkey_i2c_format.py - Tool to format a string that
+	should be written to the EEPROM using the 
+	bus pirate. It will output a string that can 
+	be pasted directly into the bus pirate for 
+	writing. 
+
+webkey_usbmon_parse.py - Tool to parse a usbmon log
+	file and interpret the keystrokes it sends. 
+
+	Set up is as follows:
+
+	wget http://people.redhat.com/zaitcev/linux/usbmon-6.tar.gz
+	tar -zxvf usbmon-6.tar.gz
+	cd usbmon-6 
+	make
+	./usbmon -i 6 -fu -s 100 > capture.mon
+	
+	./webkey_usbmon_parse.py capture.mon
+
+sample_usbmon_capture.mon - Sample usbmon capture 
+	to test webkey_usbmon_parse.py 
+	
+	
